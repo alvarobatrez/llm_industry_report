@@ -30,8 +30,3 @@ class QueryParser:
         result = json.loads(response.choices[0].message.content)
 
         return QueryParams(**result)
-    
-if __name__ == '__main__':
-    qp = QueryParser()
-    response = qp.parse_query('Give me information about the electric vehicle market in Spain in 2024')
-    print(response)

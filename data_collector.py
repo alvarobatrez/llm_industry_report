@@ -1,7 +1,7 @@
 import os
 import serpapi
 import requests
-from query_parser import QueryParams, QueryParser
+from query_parser import QueryParams
 
 class DataCollector:
 
@@ -17,7 +17,7 @@ class DataCollector:
         
         return data
     
-    def google_search(self, params):
+    def google_search(self, params: QueryParams):
         params_dict = {
             'engine': 'google',
             'q': f'{params.market} market trends {params.timeframe}'
@@ -26,7 +26,7 @@ class DataCollector:
         results = client.search(params_dict)
         return results
     
-    def get_news(self, params):
+    def get_news(self, params: QueryParams):
         url = 'https://newsapi.org/v2/everything?'
         params = {
             'q': params.market,
